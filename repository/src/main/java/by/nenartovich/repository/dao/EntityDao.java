@@ -14,6 +14,6 @@ public interface EntityDao<T> {
 
     void update(T t);
 
-    void delete(T t);
+    void delete(Integer id);
 
 }

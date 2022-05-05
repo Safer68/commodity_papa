@@ -29,6 +29,9 @@ public class Client {
     @Column(name = "patronymic", length = 20)
     private String patronymic;
 
+    @Column(name = "phone_number", length = 15)
+    private String phoneNumber;
+
     @Embedded
     private Address address;
 

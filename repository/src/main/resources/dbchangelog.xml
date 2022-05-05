@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet id="1" author="Nenartovich" failOnError="true">
+        <sqlFile path="src/main/resources/META-INF/commodity_papa.sql"/>
+    </changeSet>
+
+    <changeSet id="2" author="Nenartovich">
+        <tagDatabase tag="version_1.0.1"/>
+    </changeSet>
+
+    <changeSet id="3" author="Nenartovich" failOnError="true">
+        <sqlFile path="src/main/resources/META-INF/test_data.sql"/>
+        <rollback>
+            <delete tableName="client"/>
+            <delete tableName="delivery"/>
+            <delete tableName="manager"/>
+            <delete tableName="order_products"/>
+            <delete tableName="orders"/>
+            <delete tableName="product"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

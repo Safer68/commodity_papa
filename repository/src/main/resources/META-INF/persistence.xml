@@ -6,6 +6,7 @@
         <class>by.nenartovich.repository.entity.Client</class>
         <class>by.nenartovich.repository.entity.Address</class>
         <class>by.nenartovich.repository.entity.Delivery</class>
+        <class>by.nenartovich.repository.entity.Manager</class>
 
 
         <properties>
@@ -16,7 +17,7 @@
             <property name="javax.persistence.jdbc.password" value="1234"/>
             <property name="hibernate.dialect.storage_engine" value="innodb"/>
             <property name="hibernate.hbm" value="innodb"/>
-            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.use_sql_comments" value="true"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.connection.pool_size" value="10"/>

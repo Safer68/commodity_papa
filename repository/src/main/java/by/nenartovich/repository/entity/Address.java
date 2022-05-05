@@ -20,4 +20,12 @@ public class Address {
     private String street;
 @Column(name = "postal_code")
     private Integer postalCode;
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + "(" +
+                "city = " + city + ", " +
+                "street = " + street + ", " +
+                "postalCode = " + postalCode + ")";
+    }
 }

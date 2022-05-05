@@ -11,17 +11,16 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "delivery")
-public class Delivery {
-
+@Table(name = "manager")
+public class Manager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
+
     @Column(name = "name")
     private String name;
 
-   /* @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
-    private Set<Order> orders = new java.util.LinkedHashSet<>();*/
-
+    @OneToMany(mappedBy = "manager", orphanRemoval = true)
+    private Set<Order> orders = new java.util.LinkedHashSet<>();
 }
