@@ -34,4 +34,7 @@
     <changeSet id="7" author="Nenartovich" failOnError="true" context="test">
         <sqlFile path="src/main/resources/liquibase/v-0.1.0/2022_05_25--07-test-data.sql"/>
     </changeSet>
+    <changeSet id="8" author="Nenartovich" failOnError="true" context="test">
+        <sqlFile path="src/main/resources/liquibase/v-0.1.0/2022_05_30--01-change-schema-orders.sql"/>
+    </changeSet>
 </databaseChangeLog>

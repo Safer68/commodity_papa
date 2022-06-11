@@ -47,14 +47,13 @@ public class App {
         Manager manager = Manager.builder()
                 .name(MANAGER_NAME).build();
 
-        Order order = Order.builder()
-                .date(new Date())
+       /* Order order = Order.builder()
                 .client(client)
                 .manager(manager)
                 .delivery(delivery)
                 .products(new LinkedHashSet<>()).build();
         order.getProducts().add(product);
-        orderDao.save(order);
+        orderDao.save(order);*/
 
     }
 }

@@ -7,7 +7,7 @@ import by.nenartovich.repository.entity.Order;
 import java.util.List;
 
 public interface ManagerDao extends EntityDao<Manager>{
-    List<Order> getManagerOrders(String name);
+    List<Order> getManagerOrders(Integer managerId);
 
     List<Client> getManagerClients(String name);
 

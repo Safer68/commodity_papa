@@ -1,11 +1,12 @@
 package by.nenartovich.repository.entity;
 
+import by.nenartovich.repository.dao.impl.OrderDaoImpl;
 import lombok.*;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Builder
 @AllArgsConstructor
@@ -20,14 +21,22 @@ public class Order {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "date")
-    private Date date;
+    @Column(name = "date_of_creation")
+    private final Date dateCreate = new Date();
+
+    @Column(name = "date_of_change")
+    @Builder.Default
+    private Date dateChange = new Date();
+
+    @Column(name = "status")
+    @Builder.Default
+    private boolean status = true;
 
     @ManyToMany
     @JoinTable(name = "order_products",
             joinColumns = @JoinColumn(name = "order_id"),
             inverseJoinColumns = @JoinColumn(name = "products_id"))
-    private Set<Product> products = new LinkedHashSet<>();
+    private List<Product> products = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "client_id")
@@ -42,9 +51,19 @@ public class Order {
     private Manager manager;
 
     @Override
-    public String toString() {
-        return getClass().getSimpleName() + "(" +
-                "id = " + id + ", " +
-                "date = " + date + ")";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        Order order = (Order) o;
+        return id != null && Objects.equals(id, order.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
+    public static void main(String[] args) {
+        new OrderDaoImpl().save(Order.builder().build());
     }
 }

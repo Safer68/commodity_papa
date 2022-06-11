@@ -16,11 +16,11 @@ public class ManagerDaoImp extends EntityDaoImpl<Manager> implements ManagerDao 
     }
 
     @Override
-    public List<Order> getManagerOrders(String name) {
+    public List<Order> getManagerOrders(Integer managerId) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         Query query = entityManager
-                .createQuery("SELECT E.orders FROM Manager E WHERE E.name = :name");
-        query.setParameter("name", name);
+                .createQuery("SELECT E.orders FROM Manager E WHERE E.id = :managerId");
+        query.setParameter("managerId", managerId);
         List<Order> Orders = query.getResultList();
         entityManager.close();
         return (Orders.size() != 0) ? Orders : null;

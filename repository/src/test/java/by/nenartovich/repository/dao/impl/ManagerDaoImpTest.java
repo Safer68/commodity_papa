@@ -15,7 +15,7 @@ public class ManagerDaoImpTest {
 
     private final ManagerDao managerDaoImp = new ManagerDaoImp();
 
-    @Test
+    /*@Test
     public void testGetManagerOrders() {
         List<Order> orderList = managerDaoImp.getManagerOrders(MANAGER_NAME_ONE);
         assertNotNull(orderList);
@@ -24,9 +24,9 @@ public class ManagerDaoImpTest {
         assertEquals(expected, actual);
         List<Order> orderListNull = managerDaoImp.getManagerOrders(MANAGER_NAME_TWO);
         assertNull(orderListNull);
-    }
+    }*/
 
-    @Test
+   /* @Test*/
     public void testGetManagerClients() {
         List<Client> orderList = managerDaoImp.getManagerClients(MANAGER_NAME_ONE);
         assertNotNull(orderList);
