@@ -22,6 +22,6 @@ public class ClientDaoImpl extends EntityDaoImpl<Client> implements ClientDao {
         query.setParameter("name", name);
         List<Order> Orders = query.getResultList();
         entityManager.close();
-        return Orders;
+        return (Orders.size() != 0) ? Orders : null;
     }
 }

@@ -5,7 +5,6 @@ import by.nenartovich.repository.dao.EntityDao;
 import by.nenartovich.repository.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -30,14 +29,15 @@ abstract class EntityDaoImpl<T> implements EntityDao<T> {
 
     @Override
     public List<T> findAll() {
+        List<T> allQuery = null;
         EntityManager entityManager = HibernateUtil.getEntityManager();
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         CriteriaQuery<T> criteriaQuery = criteriaBuilder.createQuery(aClass);
         Root<T> rootEntry = criteriaQuery.from(aClass);
-        CriteriaQuery<T> all = criteriaQuery.select(rootEntry);
-        TypedQuery<T> allQuery = entityManager.createQuery(all);
+        criteriaQuery.select(rootEntry);
+        allQuery = entityManager.createQuery(criteriaQuery).getResultList();
         entityManager.close();
-        return allQuery.getResultList();
+        return allQuery;
     }
 
     @Override
@@ -64,15 +64,16 @@ abstract class EntityDaoImpl<T> implements EntityDao<T> {
         entityManager.getTransaction().begin();
         entityManager.merge(t);
         entityManager.getTransaction().commit();
-
+        entityManager.close();
     }
 
     @Override
-    public void delete(T t) {
+    public void delete(Integer id) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
-        entityManager.merge(t);
+        T entity = entityManager.find(aClass, id);
         entityManager.getTransaction().begin();
-        entityManager.remove(t);
+        entityManager.remove(entity);
         entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }

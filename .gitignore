@@ -1,2 +1,14 @@
 # Project exclude paths
 /repository/target/
+/.idea/
+/target/
+/service/target/
+/reportAggregator/target/
+/controller/target/
+/.idea/
+/commodityPapa.iml
+/controller.iml
+/repository.iml
+/ui/target/ui/WEB-INF/layout/view/common/common.jsp
+/controller/README.txt
+/ui/target/ui.war

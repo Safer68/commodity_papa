@@ -3,7 +3,10 @@ package by.nenartovich.repository.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -16,5 +19,10 @@ public class Delivery {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Integer id;
+    @Column(name = "name")
+    private String name;
+
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
 
 }
