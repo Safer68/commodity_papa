@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface ManagerService {
 
-    ManagerDto findById(Integer ManagerId);
+    ManagerDto findById(Integer managerId);
 
     List<ManagerDto> findAllManagerDto();
 
-    void updateManager(Integer managerId, String newName);
+    void updateManager(ManagerDto managerDto);
 
     void createManager(Integer managerId, String name);
 

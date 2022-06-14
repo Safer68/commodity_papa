@@ -5,7 +5,6 @@ import by.nenartovich.repository.Section;
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
 import java.util.stream.Stream;
-/*import javax.persistence.Converter;*/
 
 @Converter(autoApply = true)
 public class SectionConverter implements AttributeConverter<Section, String> {

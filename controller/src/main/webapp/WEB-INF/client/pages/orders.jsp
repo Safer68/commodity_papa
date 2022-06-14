@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="row">
     <div class="col-12">
-        <h1>Заказы</h1>
+        <h1>Заказы<span class="g-main__subtitle">nice and clean</span></h1>
     </div>
 </div>
 <div class="row">
@@ -50,7 +50,7 @@
                                         data-task-curse="${task.curse}"
                                         data-task-action="newTask">
                                     Информация
-                                </button>
+                                </button
                             </div>
                         </td>
                     </tr>
@@ -72,7 +72,7 @@
             </div>
             <form action="${pageContext.request.contextPath}/home?pageName=task" method="post">
                 <div class="modal-body">
-                    Дата заказа <input id="taskName" name="Name" class='lf--input' type="Name"><br><br>
+                    Name <input id="taskName" name="Name" class='lf--input' type="Name"><br><br>
                     Curse: <select id="taskCurse" name="Course">
                     <c:forEach var="course" items="${courses}" varStatus="status">
                         <option value="${course.id}">${course.name}</option>

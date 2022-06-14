@@ -1,12 +1,10 @@
-package by.nenartovich.controller.manager;
+package by.nenartovich.controller.client;
 
 
-import by.nenartovich.controller.manager.impl.CatalogCommand;
-import by.nenartovich.controller.manager.impl.OrderCommand;
+import by.nenartovich.controller.client.impl.CatalogCommand;
 
 public enum CommandEnum {
-    ORDERS("Orders", "WEB-INF/pages/orders.jsp", new OrderCommand()),
-    CATALOG("Catalog", "WEB-INF/pages/catalog.jsp", new CatalogCommand());
+    CATALOG("Catalog", "WEB-INF/client/pages/catalog.jsp", new CatalogCommand());
     private String pageName;
     private final String pagePath;
     private Command command;
@@ -23,7 +21,7 @@ public enum CommandEnum {
                 return type;
             }
         }
-        return ORDERS;
+        return CATALOG;
     }
 
     public String getPageName() {

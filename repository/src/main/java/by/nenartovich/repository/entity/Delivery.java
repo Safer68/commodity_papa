@@ -3,7 +3,8 @@ package by.nenartovich.repository.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Builder
 @AllArgsConstructor
@@ -21,7 +22,7 @@ public class Delivery {
     @Column(name = "name")
     private String name;
 
-   /* @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
-    private Set<Order> orders = new java.util.LinkedHashSet<>();*/
+    @OneToMany(mappedBy = "delivery", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
 
 }

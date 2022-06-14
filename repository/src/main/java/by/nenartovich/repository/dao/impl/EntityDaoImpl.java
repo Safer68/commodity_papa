@@ -5,7 +5,6 @@ import by.nenartovich.repository.dao.EntityDao;
 import by.nenartovich.repository.util.HibernateUtil;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;

@@ -1,12 +1,13 @@
 package by.nenartovich.repository.entity;
 
-import by.nenartovich.repository.dao.impl.OrderDaoImpl;
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 @Builder
 @AllArgsConstructor
@@ -61,9 +62,5 @@ public class Order {
     @Override
     public int hashCode() {
         return getClass().hashCode();
-    }
-
-    public static void main(String[] args) {
-        new OrderDaoImpl().save(Order.builder().build());
     }
 }

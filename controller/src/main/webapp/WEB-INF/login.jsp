@@ -13,10 +13,22 @@
         <form method="post" action="${pageContext.request.contextPath}/">
             <p><input type="text" name="login1" value="" placeholder="Логин или Email"></p>
             <p><input type="password" name="password" value="" placeholder="Пароль"></p>
+            <p class="submit"><input type="submit" name="commit" value="Войти"></p>
+        </form>
+        <form method="post" action="${pageContext.request.contextPath}/">
             Manager: <select name="login">
-            <c:forEach var="manager" items="${managerName}" varStatus="status">
+            <c:forEach var="manager" items="${managers}" varStatus="status">
             <option value="${manager.id}">${manager.name}</option>
             </c:forEach>
+            <input type="hidden" name="Rol" value="manager">
+            <p class="submit"><input type="submit" name="commit" value="Войти"></p>
+        </form>
+        <form method="post" action="${pageContext.request.contextPath}/">
+            Client: <select name="login">
+            <c:forEach var="client" items="${clients}" varStatus="status">
+                <option value="${client.id}">${client.name}</option>
+            </c:forEach>
+            <input type="hidden" name="Rol" value="client">
             <p class="submit"><input type="submit" name="commit" value="Войти"></p>
         </form>
     </div>

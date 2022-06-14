@@ -3,12 +3,12 @@
 <html lang="ru">
 
 <head>
-    <c:import url="partials/head.jsp"/>
+    <c:import url="client/partials/head.jsp"/>
 </head>
 <body>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jvectormap@2.0.4/jquery-jvectormap.min.css">
 <div class="g-navigation fixed-top">
-    <c:import url="partials/navigation.jsp"/>
+    <c:import url="client/partials/navigation.jsp"/>
 </div>
 <div class="g-container">
     <div class="col-12">
@@ -29,7 +29,7 @@
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="${pageContext.request.contextPath}/managerPage" method="post">
+            <form action="${pageContext.request.contextPath}/clientPage" method="post">
                 <div class="modal-body">
                     Name <input value="${UserName.name}" name="newName" class='lf--input'
                                 type="Name"><br><br>

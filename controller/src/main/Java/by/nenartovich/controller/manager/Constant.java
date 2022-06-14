@@ -3,20 +3,16 @@ package by.nenartovich.controller.manager;
 public class Constant {
     public static final String TEMPLATE_PAGE = "WEB-INF/template.jsp";
     public static final String ORDERS = "orders";
+    public static final String PRODUCTS = "products";
     public static final String PAGE_NAME = "pageName";
     public static final String PAGE_PATH = "pagePath";
-
-    /*public static final String ASSESSMENT_PAGE = "/WEB-INF/view/pages/assessment.jsp";
-    public static final String COURSES = "courses";
-    public static final String ADMINS = "admins";
-    public static final String COURSE_ID = "courseId";
-    public static final String ADMIN_ID = "adminId";
-    public static final String MENTOR_ID = "mentorId";
-    public static final String NAME = "name";
-    public static final String MENTORS = "mentors";
-    public static final String EMPTY_STRING = "";
-    public static final String MENTOR_NAME_FOR_UPDATE = "mentorNameForUpdate";
-    public static final String ALL_COURSE_FOR_MENTOR = "allCourseForMentor";
-    public static final String ALL_ADMIN_FOR_MENTOR = "allAdminForMentor";
-    public static final String STUDENT_ID = "studentId";*/
+    public static final String UPDATE = "update";
+    public static final String ACTION = "action";
+    public static final String SAVE_PRODUCT = "newProduct";
+    public static final String DELETE_PRODUCT = "delete";
+    public static final String NEW_NAME = "newName";
+    public static final String USER_NAME = "UserName";
+    public static final String DESCRIPTION = "description";
+    public static final String PRICE = "price";
+    public static final String PRODUCT_ID = "productId";
 }

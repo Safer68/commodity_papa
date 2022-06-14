@@ -29,7 +29,7 @@
             <div class="modal-header">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="${pageContext.request.contextPath}/managerPage" method="post">
+            <form action="${pageContext.request.contextPath}/clientPage" method="post">
                 <div class="modal-body">
                     Name <input value="${UserName.name}" name="newName" class='lf--input'
                                 type="Name"><br><br>
@@ -42,6 +42,37 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="product" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="${pageContext.request.contextPath}/home?pageName=task" method="post">
+                <div class="modal-body">
+                    Описание <input id="productDescription" name="description" class='lf--input' type="Name"><br><br>
+                    Цена <input id="productPrice" name="price" class='lf--input' type="Name"><br><br>
+                    <input id="action" type="hidden" name="action"/>
+                    <input id="taskId" type="hidden" name="taskId"/>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $(".js-course-detail").click(
+            function () {
+                var productDescription = $(this).attr('product-description');
+                var productPrice = $(this).attr('product-price');
+                $("#productDescription").val(productDescription)
+                $("#productPrice").val(productPrice)
+            })
+    });
+</script>
 </body>
 
 </html>

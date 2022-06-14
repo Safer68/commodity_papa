@@ -1,9 +1,6 @@
 package by.nenartovich.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
@@ -12,13 +9,14 @@ import javax.persistence.Embeddable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @Embeddable
 public class Address {
-@Column(name = "city")
+    @Column(name = "city")
     private String city;
-@Column(name = "street")
+    @Column(name = "street")
     private String street;
-@Column(name = "postal_code")
+    @Column(name = "postal_code")
     private Integer postalCode;
 
     @Override
