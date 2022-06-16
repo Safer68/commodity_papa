@@ -15,11 +15,11 @@ public class ClientDaoImpl extends EntityDaoImpl<Client> implements ClientDao {
     }
 
     @Override
-    public List<Order> getClientOrder(String name) {
+    public List<Order> getClientOrder(Integer clientId) {
         EntityManager entityManager = HibernateUtil.getEntityManager();
         Query query = entityManager
-                .createQuery("SELECT E.orders FROM Client E WHERE E.name = :name");
-        query.setParameter("name", name);
+                .createQuery("SELECT E.orders FROM Client E WHERE E.id = :clientId");
+        query.setParameter("clientId", clientId);
         List<Order> Orders = query.getResultList();
         entityManager.close();
         return (Orders.size() != 0) ? Orders : null;

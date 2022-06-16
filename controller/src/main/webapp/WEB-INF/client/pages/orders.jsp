@@ -15,7 +15,6 @@
                     <th scope="col">№</th>
                     <th scope="col">Дата заказа</th>
                     <th scope="col">Товар</th>
-                    <th scope="col">Клиент</th>
                     <th scope="col">Сумма заказа</th>
                     <th scope="col">Доставка</th>
                     <th scope="col">Статус заказа</th>
@@ -33,7 +32,6 @@
                                 <option>${product.description}</option>
                                 </c:forEach>
                         </td>
-                        <td>${order.client.name}</td>
                         <td>${order.price}</td>
                         <td>${order.delivery.name}</td>
                         <td>${order.status}</td>
@@ -43,14 +41,13 @@
                                 <i class="g-header__icon--caret fas fa-caret-down"></i>
                             </a>
                             <div class="g-notification dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item"
+                                <button class="dropdown-item js-course-detail"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#taskForm"
-                                        data-task-name="${task.name}"
-                                        data-task-curse="${task.curse}"
-                                        data-task-action="newTask">
+                                        data-bs-target="#orderForm"
+                                        data-create="${order.dataCreate}"
+                                        data-price="${order.price}">
                                     Информация
-                                </button
+                                </button>
                             </div>
                         </td>
                     </tr>
@@ -64,7 +61,7 @@
     </div>
     </section>
 </div>
-<div class="modal fade" id="taskForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="orderForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -72,17 +69,11 @@
             </div>
             <form action="${pageContext.request.contextPath}/home?pageName=task" method="post">
                 <div class="modal-body">
-                    Name <input id="taskName" name="Name" class='lf--input' type="Name"><br><br>
-                    Curse: <select id="taskCurse" name="Course">
-                    <c:forEach var="course" items="${courses}" varStatus="status">
-                        <option value="${course.id}">${course.name}</option>
-                    </c:forEach>
-                </select><br>
-                    <input id="action" type="hidden" name="action"/>
-                    <input id="taskId" type="hidden" name="taskId"/>
+                    Дата заказа <input id="dataCreate" name="Name" class='lf--input' type="Name"><br><br>
+                    Сумма заказа <input id="datadPrice" name="Name" class='lf--input' type="Name"><br><br>
+
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary">Save</button>
                 </div>
             </form>
         </div>
@@ -92,14 +83,10 @@
     $(function () {
         $(".js-course-detail").click(
             function () {
-                var dataTaskName = $(this).attr('data-task-name');
-                var dataTaskId = $(this).attr('data-task-id');
-                var dataTaskCurse = $(this).attr('data-task-curse');
-                var dataTaskAction = $(this).attr('data-task-action');
-                $("#taskName").val(dataTaskName)
-                $("#taskCurse").val(dataTaskCurse)
-                $("#action").val(dataTaskAction)
-                $("#taskId").val(dataTaskId)
+                var dataCreate = $(this).attr('data-create');
+                var datadPrice = $(this).attr('data-price');
+                $("#dataCreate").val(dataCreate)
+                $("#datadPrice").val(datadPrice)
             })
     });
 </script>

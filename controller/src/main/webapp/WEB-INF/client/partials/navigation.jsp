@@ -50,6 +50,12 @@
     <div class="g-sidebar__menu">
         <ul class="g-sidebar__menu-list">
             <li class="g-sidebar__menu-item">
+                <a class="g-sidebar__menu-link" href="${pageContext.request.contextPath}/clientPage?pageName=Orders">
+                    <i class="g-sidebar__menu-icon far fa-window-restore"></i>
+                    <span class="g-sidebar__menu-description">Заказы</span>
+                </a>
+            </li>
+            <li class="g-sidebar__menu-item">
                 <a class="g-sidebar__menu-link" href="${pageContext.request.contextPath}/clientPage?pageName=Catalog">
                     <i class="g-sidebar__menu-icon far fa-window-restore"></i>
                     <span class="g-sidebar__menu-description">Каталог</span>

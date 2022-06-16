@@ -6,5 +6,5 @@ import by.nenartovich.repository.entity.Order;
 import java.util.List;
 
 public interface ClientDao extends EntityDao<Client> {
-    List<Order> getClientOrder(String name);
+    List<Order> getClientOrder(Integer clientId);
 }

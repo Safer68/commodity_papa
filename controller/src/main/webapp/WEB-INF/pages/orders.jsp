@@ -28,7 +28,7 @@
                         <td>${order.id}</td>
                         <td>${order.dataCreate}</td>
                         <td>
-                            <select name="login">
+                            <select name="product">
                                 <c:forEach var="product" items="${order.products}" varStatus="status">
                                 <option>${product.description}</option>
                                 </c:forEach>
@@ -43,12 +43,12 @@
                                 <i class="g-header__icon--caret fas fa-caret-down"></i>
                             </a>
                             <div class="g-notification dropdown-menu dropdown-menu-right">
-                                <button class="dropdown-item"
+                                <button class="dropdown-item js-course-detail"
                                         data-bs-toggle="modal"
-                                        data-bs-target="#taskForm"
-                                        data-task-name="${task.name}"
-                                        data-task-curse="${task.curse}"
-                                        data-task-action="newTask">
+                                        data-bs-target="#OtderForm"
+                                        data-сreate="${order.dataCreate}"
+                                        data-order-client-name="${order.client.name}"
+                                        order-price="${order.price}">
                                     Информация
                                 </button>
                             </div>
@@ -64,7 +64,7 @@
     </div>
     </section>
 </div>
-<div class="modal fade" id="taskForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="OtderForm" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -72,17 +72,11 @@
             </div>
             <form action="${pageContext.request.contextPath}/home?pageName=task" method="post">
                 <div class="modal-body">
-                    Дата заказа <input id="taskName" name="Name" class='lf--input' type="Name"><br><br>
-                    Curse: <select id="taskCurse" name="Course">
-                    <c:forEach var="course" items="${courses}" varStatus="status">
-                        <option value="${course.id}">${course.name}</option>
-                    </c:forEach>
-                </select><br>
-                    <input id="action" type="hidden" name="action"/>
-                    <input id="taskId" type="hidden" name="taskId"/>
+                    Дата заказа <input id="dataCreate" name="Name" class='lf--input' type="Name"><br><br>
+                    Клиент <input id="clientName" name="Name" class='lf--input' type="Name"><br><br>
+                    Сумма заказа <input id="orderPrice" name="Name" class='lf--input' type="Name"><br><br>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary">Save</button>
                 </div>
             </form>
         </div>
@@ -92,14 +86,12 @@
     $(function () {
         $(".js-course-detail").click(
             function () {
-                var dataTaskName = $(this).attr('data-task-name');
-                var dataTaskId = $(this).attr('data-task-id');
-                var dataTaskCurse = $(this).attr('data-task-curse');
-                var dataTaskAction = $(this).attr('data-task-action');
-                $("#taskName").val(dataTaskName)
-                $("#taskCurse").val(dataTaskCurse)
-                $("#action").val(dataTaskAction)
-                $("#taskId").val(dataTaskId)
+                var dataCreate = $(this).attr('data-сreate');
+                var clientName = $(this).attr('data-order-client-name');
+                var orderPrice = $(this).attr('order-price');
+                $("#dataCreate").val(dataCreate)
+                $("#clientName").val(clientName)
+                $("#orderPrice").val(orderPrice)
             })
     });
 </script>

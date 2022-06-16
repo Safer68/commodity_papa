@@ -55,12 +55,12 @@ public class ClientDaoImplTest {
 
     /*@Test*/
     public void testGetClientOrder() {
-        List<Order> orderList = clientDao.getClientOrder(NAME_CLIENT_VASYA);
+        /*//List<Order> orderList = clientDao.getClientOrder(NAME_CLIENT_VASYA);
         assertNotNull(orderList);
         Integer actual = orderList.get(0).getId();
         Integer expected = CLIENT_BY_ID;
         assertEquals(expected, actual);
-        List<Order> orderListNull = clientDao.getClientOrder(MockConstant.NAME_CLIENT_PETYA);
-        assertNull(orderListNull);
+        //List<Order> orderListNull = clientDao.getClientOrder(MockConstant.NAME_CLIENT_PETYA);
+        assertNull(orderListNull);*/
     }
 }
