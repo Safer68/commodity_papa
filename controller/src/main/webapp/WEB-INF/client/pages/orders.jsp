@@ -48,6 +48,13 @@
                                         data-price="${order.price}">
                                     Информация
                                 </button>
+                                <button class="dropdown-item js-course-detail"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#orderForm"
+                                        data-create="${order.dataCreate}"
+                                        data-price="${order.price}">
+                                    Заказ получен
+                                </button>
                             </div>
                         </td>
                     </tr>

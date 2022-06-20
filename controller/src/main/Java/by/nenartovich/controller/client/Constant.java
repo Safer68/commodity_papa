@@ -3,6 +3,7 @@ package by.nenartovich.controller.client;
 public class Constant {
     public static final String TEMPLATE_PAGE = "WEB-INF/templateClient.jsp";
     public static final String ORDERS = "orders";
+    public static final String ORDER = "order";
     public static final String PRODUCTS = "products";
     public static final String PAGE_NAME = "pageName";
     public static final String PAGE_PATH = "pagePath";

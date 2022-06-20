@@ -9,7 +9,7 @@ public class AddressConverter implements ConverterDTO<AddressDto, Address> {
     public AddressDto apply(Address address) {
         AddressDto addressDto = new AddressDto();
         addressDto.setCity(address.getCity());
-        addressDto.setStreet(addressDto.getStreet());
+        addressDto.setStreet(address.getStreet());
         addressDto.setPostalCode(address.getPostalCode());
         return addressDto;
     }

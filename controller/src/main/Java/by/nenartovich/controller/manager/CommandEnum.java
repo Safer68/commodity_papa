@@ -2,10 +2,15 @@ package by.nenartovich.controller.manager;
 
 
 import by.nenartovich.controller.manager.impl.CatalogCommand;
+
+import by.nenartovich.controller.manager.impl.NewOrderCommand;
 import by.nenartovich.controller.manager.impl.OrderCommand;
+import by.nenartovich.controller.manager.impl.OrdersCommand;
 
 public enum CommandEnum {
-    ORDERS("Orders", "WEB-INF/pages/orders.jsp", new OrderCommand()),
+    ORDERS("Orders", "WEB-INF/pages/orders.jsp", new OrdersCommand()),
+    ORDER("Order", "WEB-INF/pages/order.jsp", new OrderCommand()),
+    NEW_ORDER("newOrder", "WEB-INF/pages/new_order.jsp", new NewOrderCommand()),
     CATALOG("Catalog", "WEB-INF/pages/catalog.jsp", new CatalogCommand());
     private String pageName;
     private final String pagePath;

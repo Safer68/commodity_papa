@@ -26,7 +26,14 @@ public class ClientServlet extends HttpServlet {
                 .orElse(PRODUCTS);
         if (req.getParameter(UPDATE) != null) {
             ClientDto client = (ClientDto) req.getSession().getAttribute(USER_NAME);
+            client.setSurname(req.getParameter("newSurname"));
             client.setName(req.getParameter(NEW_NAME));
+            client.setPatronymic(req.getParameter("newPatronymic"));
+            client.setPhoneNumber(req.getParameter("newPhoneNumber"));
+            client.getAddress().setCity(req.getParameter("newCity"));
+            client.getAddress().setStreet(req.getParameter("newStreet"));
+            client.getAddress().setPostalCode(Integer.valueOf(req.getParameter("newPostalCode")));
+
             new ClientServiceImpl().updateClient(client);
         }
         CommandEnum command = CommandEnum.selectCommand(pageName);

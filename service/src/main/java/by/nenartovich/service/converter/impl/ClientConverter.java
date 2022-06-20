@@ -1,5 +1,6 @@
 package by.nenartovich.service.converter.impl;
 
+import by.nenartovich.repository.entity.Address;
 import by.nenartovich.repository.entity.Client;
 import by.nenartovich.service.converter.ConverterDTO;
 import by.nenartovich.service.dto.ClientDto;
@@ -11,6 +12,9 @@ public class ClientConverter implements ConverterDTO<ClientDto, Client> {
         clientDto.setId(client.getId());
         clientDto.setName(client.getName());
         clientDto.setSurname(client.getSurname());
+        clientDto.setPatronymic(client.getPatronymic());
+        clientDto.setPhoneNumber(client.getPhoneNumber());
+        clientDto.setAddress(new AddressConverter().convert(client.getAddress()));
         return clientDto;
     }
 
@@ -20,6 +24,7 @@ public class ClientConverter implements ConverterDTO<ClientDto, Client> {
         client.setSurname(clientDto.getSurname());
         client.setPatronymic(clientDto.getPatronymic());
         client.setPhoneNumber(clientDto.getPhoneNumber());
+        client.setAddress(new AddressConverter().convert(new Address(),clientDto.getAddress()));
         return client;
     }
 }

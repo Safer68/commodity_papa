@@ -2,11 +2,11 @@ package by.nenartovich.controller.client;
 
 
 import by.nenartovich.controller.client.impl.CatalogCommand;
-import by.nenartovich.controller.client.impl.OrderCommand;
+import by.nenartovich.controller.client.impl.OrdersCommand;
 
 
 public enum CommandEnum {
-    ORDERS("Orders", "WEB-INF/client/pages/orders.jsp", new OrderCommand()),
+    ORDERS("Orders", "WEB-INF/client/pages/orders.jsp", new OrdersCommand()),
     CATALOG("Catalog", "WEB-INF/client/pages/catalog.jsp", new CatalogCommand());
     private String pageName;
     private final String pagePath;

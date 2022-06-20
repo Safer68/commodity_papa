@@ -1,10 +1,26 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div class="row">
-    <div class="col-12">
-        <h1>Заказы</h1>
+
+<div class="d-flex bd-highlight mb-3">
+    <div class="p-2 bd-highlight"><h2>Заказы</h2></div>
+    <div class="ml-auto p-2 bd-highlight">
+        <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/managerPage?pageName=newOrder"
+           role="button">
+            <i class="col-1 bi bi-plus-circle"> Создать</i>
+        </a>
     </div>
 </div>
+<%--<div class="row">
+    <div class="col-10">
+        <h1>Заказы</h1>
+    </div>
+    <div class="col-2">
+            <a class="btn btn-outline-primary" href="${pageContext.request.contextPath}/managerPage?pageName=Orders"
+               role="button">
+                <i class="col-1 bi bi-plus-circle"> Создать</i>
+            </a>
+        </div>
+</div>--%>
 <div class="row">
     <div class="col-12">
         <section class="g-section">
@@ -24,7 +40,17 @@
                 </thead>
                 <tbody>
                 <c:forEach var="order" items="${orders}" varStatus="status">
-                    <tr>
+                    <c:choose>
+                        <c:when test="${order.status == 'Активен'}">
+                            <tr class="table-warning">
+                        </c:when>
+                        <c:when test="${order.status == 'Выполнен'}">
+                            <tr class="table-success">
+                        </c:when>
+                        <c:otherwise>
+                            <tr>
+                        </c:otherwise>
+                    </c:choose>
                         <td>${order.id}</td>
                         <td>${order.dataCreate}</td>
                         <td>
@@ -46,11 +72,17 @@
                                 <button class="dropdown-item js-course-detail"
                                         data-bs-toggle="modal"
                                         data-bs-target="#OtderForm"
-                                        data-сreate="${order.dataCreate}"
+                                        data-сreate="${order}"
                                         data-order-client-name="${order.client.name}"
                                         order-price="${order.price}">
                                     Информация
                                 </button>
+                                <form action="${pageContext.request.contextPath}/managerPage" name="deleting"
+                                      method="post">
+                                    <input type="hidden" name="orderId" value="${order.id}"/>
+                                    <input type="hidden" name="pageName" value="Order"/>
+                                    <button class="dropdown-item">Информация</button>
+                                </form>
                             </div>
                         </td>
                     </tr>
@@ -86,10 +118,10 @@
     $(function () {
         $(".js-course-detail").click(
             function () {
-                var dataCreate = $(this).attr('data-сreate');
+                var dataCreate = $(this).attachInternals('data-сreate');
                 var clientName = $(this).attr('data-order-client-name');
                 var orderPrice = $(this).attr('order-price');
-                $("#dataCreate").val(dataCreate)
+                $("#dataCreate").text(dataCreate.attr)
                 $("#clientName").val(clientName)
                 $("#orderPrice").val(orderPrice)
             })

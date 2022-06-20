@@ -31,8 +31,48 @@
             </div>
             <form action="${pageContext.request.contextPath}/clientPage" method="post">
                 <div class="modal-body">
-                    Name <input value="${UserName.name}" name="newName" class='lf--input'
-                                type="Name"><br><br>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Фамилия</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.surname}" name="newSurname" class='lf--input'>
+                        </label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Имя</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.name}" name="newName" class='lf--input'>
+                        </label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Отчество</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.patronymic}" name="newPatronymic" class='lf--input'>
+                        </label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Телефон</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.phoneNumber}" name="newPhoneNumber" class='lf--input'>
+                        </label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Город</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.address.city}" name="newCity" class='lf--input'>
+                        </label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Ул.</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.address.street}" name="newStreet" class='lf--input'>
+                        </label>
+                    </div>
+                    <div class="mb-3 row">
+                        <label class="col-sm-3 col-form-label">Индекс</label>
+                        <label class="col-sm-9 col-form-label">
+                            <input value="${UserName.address.postalCode}" name="newPostalCode" class='lf--input'>
+                        </label>
+                    </div>
                     <input type="hidden" name="update" value="update"/>
                 </div>
                 <div class="modal-footer">
